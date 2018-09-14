@@ -7,7 +7,7 @@ This repository contains:
 
 ## **Dcore unix wallet setup**
 
-1.Connect to the General Bytes server via terminal/command line interface
+1.Clone repository to your custom destination on ATM server
 
         git clone https://github.com/DECENTfoundation/DCore-ATM-integration
 
@@ -28,14 +28,11 @@ Or look further here
         wget -qO- https://get.docker.com/ | sh
 
 3.Replace USERNAME with your username on the machine
-
-(On Linux use whoami)
-
-
+(if you don't know your username, use 'whoami' command)
 
         sudo usermod -aG docker USERNAME
 
-4.logout from server and login again
+4.Logout from server and login again
 
 5.Enter custom DCore wallet folder and execute commands one at the time
 
