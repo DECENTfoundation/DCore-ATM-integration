@@ -1,0 +1,40 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": "9696"
+  },
+  "decentd": {
+    "local": {
+      "host": "0.0.0.0",
+      "port": "18093",
+      "account": "public-account-1",
+      "password": "dctatm"
+    },
+    "dev": {
+      "host": "172.99.1.12",
+      "port": "8093",
+      "account": "public-account-1",
+      "password": "dctatm"
+    },
+    "production": {
+      "host": "172.99.1.12",
+      "port": "8093",
+      "account": "public-account-1",
+      "password": "dctatm"
+    }
+  },
+  "auth": {
+    "username": "admin",
+    "password": "admin"
+  },
+  "pino": {
+    "safe": true,
+    "name": "platform",
+    "timestamp": true,
+    "prettyPrint": true,
+    "serializers": {
+      "req": "pino.stdSerializers.req",
+      "res": "pino.stdSerializers.res"
+    }
+  }
+}

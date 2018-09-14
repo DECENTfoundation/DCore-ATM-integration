@@ -1,0 +1,21 @@
+server_tokens off;
+resolver 8.8.8.8 valid=600s;
+resolver_timeout 5s;
+server_names_hash_bucket_size 192;
+
+limit_req_zone $binary_remote_addr zone=perip:30m rate=30r/s;
+limit_req_zone $binary_remote_addr zone=peripnotify:30m rate=30r/s;
+limit_conn_zone $binary_remote_addr zone=addr:20m;
+limit_req_status 429;
+limit_req_log_level info;
+limit_conn_status 430;
+limit_conn_log_level info;
+
+# server {
+#        listen 80 default_server;
+#        #listen [::]:80 default_server ipv6only=off;
+#        return 301 https://$host$request_uri;
+#        root /usr/share/nginx/html;
+#        index index.html index.htm;
+#        server_name api.alax.io;
+#}

@@ -1,0 +1,4 @@
+upstream atm  {
+	server 172.99.1.10:9696 fail_timeout=30s;
+	keepalive 512;
+}

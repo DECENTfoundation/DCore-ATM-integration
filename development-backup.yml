@@ -1,0 +1,77 @@
+version: '3.6'
+
+services:
+  publictestnet:
+    container_name: dcore-atm-publictestnet
+    image: yangwao/decent-docker:publictestnet-manual-1.2.2
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100M"
+        max-file: "2"
+    volumes:
+      - ./data_publictestnet:/root/testnet_data
+    networks:
+      platform_net:
+        ipv4_address: 172.99.1.11
+
+  cliwallet:
+    container_name: dcore-atm-cliwallet
+    image: yangwao/decent-docker:cliwallet-manual-1.2.2
+    depends_on:
+      - publictestnet
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100M"
+        max-file: "2"
+    volumes:
+      - ./data_cliwallet:/root/.decent
+    command: ["/decent-bin/cli_wallet", "--server-rpc-endpoint=ws://172.99.1.11:8090", "--rpc-endpoint=0.0.0.0:8091", "--rpc-http-endpoint=0.0.0.0:8093", "--daemon"]
+    networks:
+      platform_net:
+        ipv4_address: 172.99.1.12
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: nginx-api.dockerfile
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100M"
+        max-file: "5"
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      platform_net:
+        ipv4_address: 172.99.1.9
+
+  atm:
+    build:
+      context: .
+      dockerfile: atm-dev.dockerfile
+    restart: "always"
+    depends_on:
+      - publictestnet
+      - cliwallet
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100M"
+        max-file: "2"
+    environment:
+      - VPS=dev
+    networks:
+      platform_net:
+        ipv4_address: 172.99.1.10
+
+networks:
+  platform_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.99.1.0/24

@@ -1,0 +1,34 @@
+version: '3.6'
+
+services:
+  publictestnet:
+    container_name: dcore-atm-publictestnet
+    image: yangwao/decent-docker:publictestnet-manual-1.2.2
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100M"
+        max-file: "2"
+    volumes:
+      - ./data_publictestnet:/root/testnet_data
+    ports:
+     - "127.0.0.1:18090:8090"
+     # - "127.0.0.1:18091:8091"
+     # - "127.0.0.1:18093:8093"
+
+  cliwallet:
+    container_name: dcore-atm-cliwallet
+    image: yangwao/decent-docker:cliwallet-manual-1.2.2
+    depends_on:
+      - publictestnet
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100M"
+        max-file: "2"
+    volumes:
+      - ./data_cliwallet:/root/.decent
+    ports:
+     # - "127.0.0.1:18091:8091"
+     - "127.0.0.1:18093:8093"
+    command: ["/decent-bin/cli_wallet", "--server-rpc-endpoint=ws://dcore-atm-publictestnet:8090", "--rpc-endpoint=0.0.0.0:8091", "--rpc-http-endpoint=0.0.0.0:8093", "--daemon"]

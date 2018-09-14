@@ -1,0 +1,29 @@
+{
+  "name": "decent_atm",
+  "private": true,
+  "version": "1.0.0",
+  "description": "atm proxy for decent",
+  "main": "index.js",
+  "scripts": {
+    "local": "nodemon index.js",
+    "dev": " VPS=dev nodemon index.js",
+    "start": "VPS=production node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/yangwao/decent_atm.git"
+  },
+  "author": "wao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/yangwao/decent_atm/issues"
+  },
+  "homepage": "https://gitlab.com/yangwao/decent_atm#README",
+  "dependencies": {
+    "fastify": "^1.7.0",
+    "nodemon": "^1.17.5",
+    "pino": "^4.17.3",
+    "r2": "^2.0.1",
+    "validator": "^10.4.0"
+  }
+}
