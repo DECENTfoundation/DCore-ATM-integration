@@ -1,15 +1,6 @@
-### Decent ATM
+### Decent - General Bytes ATM integration
 
-* npm run start
-* run batm_admin
-* fill out rpc in batm_admin
-* check logs
+This is DCore wallet wraper on unix platforms. 
+It's supposed to serve as Hot wallet and Bittrex exchange setup tutorial for General Bytes ATM
 
-### decent
-./cli_wallet -H
-
-#### decent - only dev
-./cli_wallet --rpc-http-endpoint="0.0.0.0:8093"
-
-#### commands
-* info
+See wiki for further setup tutorial
