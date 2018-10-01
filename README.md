@@ -82,6 +82,14 @@ Check the balance on imported accounts
 
         http -b :9696/balance
 
+If you want to import another account,
+you need to delete file wallet.json
+
+        /DCore-ATM-integration/data_cliwallet/wallet.json
+        
+and import new account again.
+
+
 **Complete wallet API is here**
 
 [https://gitlab.com/yangwao/decent\_atm/blob/master/api.md](https://gitlab.com/yangwao/decent_atm/blob/master/api.md)
@@ -94,7 +102,7 @@ File: batm\server\extensions\extra-assembly-0.1.0-SNAPSHOT.jar
 
 1.Upload file on server
 
-You can use cyberduck on MAC to upload conveniently
+(You can use cyberduck on MAC to upload conveniently)
 
 2.switch to root
 
@@ -199,5 +207,9 @@ TODO EXPLAIN BTC ? DCT ? USD Storage of coins and how it works.
 # **NOTES**
 
 1. If you upgraded General Bytes server or terminal, you need to copy library into extension folder again, Your ATM will not work due to connection errors. You can see this setup in library installation guide
+
+2. If you want to check logs from DCore wallet, go to home directory of wallet **/DCore-ATM-integration** and run command
+
+       docker-compose -f production.yml logs -f atm
 
 
