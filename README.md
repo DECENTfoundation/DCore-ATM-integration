@@ -200,9 +200,10 @@ E.g.
 
 6.Choose appropriate strategy, and you are good to go.
 
-IMPORTANT:
+**IMPORTANT:**
 
-TODO EXPLAIN BTC ? DCT ? USD Storage of coins and how it works.
+BITTREX INTEGRATION WORKS ONLY WITH **BTC / DCT** PAIR AND NO OTHER!
+YOU NEED TO ENSURE YOU HAVE ENOUGH FUNDS IN **BTC** OR **DCT** 
 
 # **NOTES**
 
