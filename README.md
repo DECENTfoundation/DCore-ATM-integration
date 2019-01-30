@@ -5,7 +5,7 @@ This repository contains:
 2. Extension library
 2. Setup tutorial for hot wallet, Bittrex exchange and extension library
 
-## **Dcore unix wallet setup**
+## **DCore unix wallet setup**
 
 1.Clone repository to your custom destination on ATM server
 
@@ -68,7 +68,7 @@ replace ACCONT_NAME_ON_DECENTNETWORK and PRIVATE_KEY with your credentials
 
         http -b :9696/de/initialSetup/ACCONT_NAME_ON_DECENTNETWORK,PRIVATE_KEY
 
-Thats all, with this step your Dcore wallet is up and running. Make sure your imported account has enough balance on it. If it doesn't, you need to send some DCT to it.
+Thats all, with this step your DCore wallet is up and running. Make sure your imported account has enough balance on it. If it doesn't, you need to send some DCT to it.
 
 The API for wallet is here
 
